@@ -11,6 +11,15 @@ console:
 push:
 	./git.sh $(commit) $(opt)
 
+deploy:
+	git push heroku main
+
+heroku-console:
+	heroku run rails console
+
+heroku-logs:
+	heroku logs --tail
+
 test:
 	NODE_ENV=test bin/rails test
 
