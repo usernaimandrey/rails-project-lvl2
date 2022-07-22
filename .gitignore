@@ -39,3 +39,4 @@ docker-compose.yml
 /coverage
 .tool-versions
 git.sh
+.vagrant
