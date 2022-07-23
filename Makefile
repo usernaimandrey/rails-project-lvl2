@@ -20,6 +20,13 @@ heroku-console:
 heroku-logs:
 	heroku logs --tail
 
+lint:
+	bundle exec rubocop
+	bundle exec slim-lint app/views/
+
+lint-fix:
+	bundle exec rubocop -A
+
 test:
 	NODE_ENV=test bin/rails test
 
