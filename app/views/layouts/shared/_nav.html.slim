@@ -1,0 +1,10 @@
+div
+  div
+    = link_to 'Домой', root_path
+  - if user_signed_in?
+    div
+      = link_to 'Выход', destroy_user_session_path, method: :delete
+  - else
+      div
+        = link_to 'Вход', new_user_session_path
+        = link_to 'Регистрация', new_user_registration_path
