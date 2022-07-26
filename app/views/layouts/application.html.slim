@@ -1,5 +1,5 @@
 doctype html
-html
+html.h-100
   head
     title
       | CollectiveBlog
@@ -8,8 +8,17 @@ html
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-  body
-    header
-      = render 'layouts/shared/flash'
-      = render 'layouts/shared/nav'
-    = yield
+  body.d-flex.flex-column.h-100
+
+    = render 'layouts/shared/nav'
+
+    = render 'layouts/shared/flash'
+
+    main
+      .mt-4.mb-5.pb-5
+        .container
+          .p-4.align-items-center.border.shadow.bg-white.rounded-3
+
+            == yield
+
+    = render 'layouts/shared/footer'

@@ -1,10 +1,14 @@
-div
-  div
-    = link_to 'Домой', root_path
-  - if user_signed_in?
-    div
-      = link_to 'Выход', destroy_user_session_path, method: :delete
-  - else
-      div
-        = link_to 'Вход', new_user_session_path
-        = link_to 'Регистрация', new_user_registration_path
+.container.mb-2.border-bottom.py-2
+  nav.navbar.navbar-expand-lg style='background-color: #e3f2fd;'
+    .container-fluid
+      = link_to root_path, class: 'navbar-brand'
+        i.fa-solid.fa-home
+      ul.navbar-nav.me-auto.mb-2.mb-lg-0
+      - if user_signed_in?
+        li.nav-item style='list-style-type: none;'
+          = link_to 'Выход', destroy_user_session_path, method: :delete, class: 'btn btn-danger'
+      - else
+        li.nav-item.mb-2 style='list-style-type: none;'
+          = link_to 'Вход', new_user_session_path, class: 'btn btn-light'
+        li.nav-item.mb-2  style='list-style-type: none;'
+          = link_to 'Регистрация', new_user_registration_path, class: 'btn btn-light'
