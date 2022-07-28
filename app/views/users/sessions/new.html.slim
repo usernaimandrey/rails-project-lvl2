@@ -1,19 +1,18 @@
 h2
-  | Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  = render 'users/shared/error_messages', resource: resource
-  .field
-    = f.label :email
+  | Вход
+= simple_form_for(@user, url: session_path(@user)) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    = f.input :email, autofocus: true, autocomplete: 'email', input_html: { class: 'form-control' }
   br
-  = f.email_field :email, autofocus: true, autocomplete: 'email'
-  .field
-    = f.label :password
+  .form-inputs
+    = f.input :password, autocomplete: 'current-password', input_html: { class: 'form-control' }
   br
-  = f.password_field :password, autocomplete: 'current-password'
   - if devise_mapping.rememberable?
-    .field
       = f.check_box :remember_me
       = f.label :remember_me
   .actions
-    = f.submit 'Log in'
+    = f.submit 'Log in', class: 'btn btn-primary'
 = render 'users/shared/links'

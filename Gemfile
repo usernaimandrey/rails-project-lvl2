@@ -70,4 +70,6 @@ gem 'devise'
 
 gem 'rollbar'
 
+gem 'simple_form'
+
 gem 'slim-rails'
