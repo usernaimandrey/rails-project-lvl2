@@ -1,0 +1,16 @@
+---
+ru:
+  simple_form:
+    error_notification:
+      default_message: 'Пожалуйста, исправьте ошибки:'
+    'no': Нет
+    placeholders:
+      post:
+        body: 'Содержание: не менее 50 символов'
+        title: Название поста
+    required:
+      mark: "*"
+      text: обязательное
+    'yes': ДА
+  
+

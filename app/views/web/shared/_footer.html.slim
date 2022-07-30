@@ -1,0 +1,10 @@
+.div
+  - duration = ActiveSupport::Duration.build(Time.current - post.created_at).parts
+  - if duration[:days]
+      span #{t('.days_ago', count: duration[:days])}
+  - elsif duration[:hours]
+      span #{t('.hours_ago', count: duration[:hours])}
+  - else
+      span #{t('.minutes_ago', count: duration[:minutes])}
+
+p.mb-2 = post.creator.email

@@ -31,6 +31,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
   gem 'rubocop-performance'
   gem 'rubocop-rails', require: false
   gem 'slim_lint'
@@ -54,7 +55,6 @@ group :test do
   gem 'capybara', '>= 3.26'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
-  gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
   gem 'minitest-power_assert'
   gem 'webdrivers'
 end
@@ -67,6 +67,10 @@ group :production do
 end
 
 gem 'devise'
+
+gem 'i18n-tasks'
+
+gem 'rails-i18n'
 
 gem 'rollbar'
 

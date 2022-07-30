@@ -1,0 +1,14 @@
+p
+  | #{link_to t('.all_posts'), root_path} / #{@post.category.name}
+
+.h-100
+  h2 = @post.title
+
+  div
+    p.text-break
+      = @post.body
+
+  - if user_signed_in? && @post.creator_id == current_user.id
+      = link_to t('.delete'), @post, data: { confirm: t('.question') }, method: :delete
+
+  = render partial: 'web/shared/footer', locals: { post: @post }

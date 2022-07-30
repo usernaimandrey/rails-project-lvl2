@@ -1,0 +1,15 @@
+= simple_form_for post do |f|
+
+    .form-inputs
+      = f.input :title
+    br
+
+    .form-inputs
+      = f.input :body, input_html: { rows: 20, cols: 50 }
+    br
+
+    .form-inputs
+      = f.association :category, selected: :first || task.category
+    br
+
+    = f.button :submit, class: 'btn btn-primary mb-2'

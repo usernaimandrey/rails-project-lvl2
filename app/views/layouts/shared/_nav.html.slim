@@ -5,10 +5,12 @@
         i.fa-solid.fa-home
       ul.navbar-nav.me-auto.mb-2.mb-lg-0
       - if user_signed_in?
+        li.nav-item.mb-1 style='list-style-type: none;'
+          = link_to t('.add_post'), new_post_path, class: 'nav-link'
         li.nav-item style='list-style-type: none;'
-          = link_to 'Выход', destroy_user_session_path, method: :delete, class: 'btn btn-danger'
+          = link_to t('.log_out'), destroy_user_session_path, method: :delete, class: 'btn btn-danger'
       - else
         li.nav-item.mb-2 style='list-style-type: none;'
-          = link_to 'Вход', new_user_session_path, class: 'btn btn-light'
+          = link_to t('.sign_in'), new_user_session_path, class: 'btn btn-light'
         li.nav-item.mb-2  style='list-style-type: none;'
-          = link_to 'Регистрация', new_user_registration_path, class: 'btn btn-light'
+          = link_to t('.sign_up'), new_user_registration_path, class: 'btn btn-light'

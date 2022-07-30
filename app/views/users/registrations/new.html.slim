@@ -1,7 +1,6 @@
 h2
-  | Регистрация
-= simple_form_for(@user, url: registration_path(@user), form_html: { class: 'needs-validation' }) do |f|
-  = render 'users/shared/error_messages', resource: @user
+  | #{t('.title')}
+= simple_form_for(@user, url: registration_path(@user)) do |f|
   = f.error_notification
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
@@ -23,5 +22,5 @@ h2
   br
 
   .actions
-    = f.submit 'Sign up', class: 'btn btn-outline-primary mb-2'
+    = f.submit t('.sign_up'), class: 'btn btn-outline-primary mb-2'
 = render 'users/shared/links'

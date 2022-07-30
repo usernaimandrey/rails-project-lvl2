@@ -1,5 +1,5 @@
 h2
-  | Вход
+  | #{t('.title')}
 = simple_form_for(@user, url: session_path(@user)) do |f|
   = f.error_notification
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
@@ -14,5 +14,5 @@ h2
       = f.check_box :remember_me
       = f.label :remember_me
   .actions
-    = f.submit 'Log in', class: 'btn btn-primary'
+    = f.submit t('.log_in'), class: 'btn btn-primary'
 = render 'users/shared/links'

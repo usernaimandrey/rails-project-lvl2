@@ -1,0 +1,17 @@
+---
+ru:
+  devise:
+    failure:
+      user:
+        invalid: Не правельный логин или пароль.
+    registrations:
+      destroyed: "До свидания! Ваша учетная запись успешно удалена. Мы надеемся увидеть Вас снова скоро."
+      signed_up: "Добро пожаловать! Вы успешно зарегистрировались"
+    sessions:
+      signed_in: "Выполнен вход."
+      signed_out: "Выполнен выход."
+      already_signed_out: "Выполнен выход."
+  errors:
+    messages:
+      already_confirmed: "был уже подтвержден, попробуйте войти"
+   

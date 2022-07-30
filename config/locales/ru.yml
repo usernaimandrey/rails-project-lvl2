@@ -1,0 +1,38 @@
+---
+ru:
+  log_in: Вход
+  sign_up: Регистрация
+  password: Забыли пароль?
+  web:
+    home:
+      index:
+        title: 'Список статей:'
+    shared:
+      footer:
+        days_ago:
+          few: "%{count} дня"
+          many: "%{count} дней"
+          one: "%{count} день"
+          other: "%{count} дня"
+        hours_ago: 
+          few: "%{count} часа"
+          many: "%{count} часов"
+          one: "%{count} час"
+          other: "%{count} часа"
+        minutes_ago:
+          few: "%{count} минуты"
+          many: "%{count} минут"
+          one: "%{count} минута"
+          other: "%{count} минуты"
+    posts:
+      create:
+        succes: Пост создан
+        failure: Исправте ошибки
+      destroy:
+        succes: Пост удален
+        failure: Чтот пошло не так
+        failure_permision: Удалить пост может только его создатель!
+      show:
+        all_posts: Все посты
+        delete: Удалить
+        question: Вы уверенны?

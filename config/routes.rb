@@ -6,5 +6,7 @@ Rails.application.routes.draw do
 
   scope module: :web do
     root 'home#index'
+
+    resources :posts, except: %i[index]
   end
 end

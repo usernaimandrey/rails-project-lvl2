@@ -1,0 +1,26 @@
+---
+ru:
+  activerecord:
+    attributes:
+      post:
+        body: Содержание
+        title: Название
+        category: Категория
+      user:
+        email: Логин(Почта)
+        password: Пароль
+        password_confirmation: Повторите пароль
+        remember_me: Запомнить
+        
+    errors:
+      models:
+        post:
+          attributes:
+            title:
+              blank: не может быть пустым
+            body:
+              blank: не может быть пустым
+              to_short: Содержание недостаточной длины (не может быть меньше 50 символов)
+
+    models:
+      post: Пост
