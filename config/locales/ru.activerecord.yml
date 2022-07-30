@@ -6,6 +6,8 @@ ru:
         body: Содержание
         title: Название
         category: Категория
+      post/comment:
+        content: Содержание коментария
       user:
         email: Логин(Почта)
         password: Пароль
@@ -24,3 +26,4 @@ ru:
 
     models:
       post: Пост
+      post/comment: Коментарий

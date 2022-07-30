@@ -83,8 +83,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
     delete post_path(@post)
 
-    # assert_response 422
+    assert_response 422
     assert { Post.find_by(id: @post) }
-    # debugger
   end
 end

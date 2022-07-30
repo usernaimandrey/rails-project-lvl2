@@ -15,16 +15,21 @@ ru:
           one: "%{count} день"
           other: "%{count} дня"
         hours_ago: 
-          few: "%{count} часа"
-          many: "%{count} часов"
-          one: "%{count} час"
-          other: "%{count} часа"
+          few: "около %{count} часа"
+          many: " около %{count} часов"
+          one: "приблизительно %{count} час"
+          other: "около %{count} часа"
         minutes_ago:
-          few: "%{count} минуты"
-          many: "%{count} минут"
-          one: "%{count} минута"
-          other: "%{count} минуты"
+          few: " около %{count} минуты"
+          many: "около %{count} минут"
+          one: "приблизительно %{count} минута"
+          other: "около %{count} минуты"
+        fresh: меньше минуты
     posts:
+      comments:
+        create:
+          failure: Чтот пошло не так
+          success: Коментарий создан
       create:
         succes: Пост создан
         failure: Исправте ошибки
@@ -35,4 +40,5 @@ ru:
       show:
         all_posts: Все посты
         delete: Удалить
+        title: Коментарий
         question: Вы уверенны?

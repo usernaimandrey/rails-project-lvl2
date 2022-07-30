@@ -1,0 +1,9 @@
+.mb-3.mt-3
+  - comments.each do |comment|
+    - unless comment.id.nil?
+      .card.mb-2
+        .card-body
+          .card-text
+            = comment.content
+        .card-footer.text-muted
+          = render partial: 'web/shared/footer', locals: { email: comment.user.email, created_at: comment.created_at }

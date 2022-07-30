@@ -8,4 +8,4 @@ h1 = t('.title')
         .card-text
           p = post.body
         .card-footer.bg-transparent.border-success
-          = render partial: 'web/shared/footer', locals: { post: post }
+          = render partial: 'web/shared/footer', locals: { email: post.creator.email, created_at: post.created_at }
