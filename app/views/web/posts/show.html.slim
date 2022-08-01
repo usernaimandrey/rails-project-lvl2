@@ -19,4 +19,4 @@ h3
 - if user_signed_in?
     = render partial: 'web/posts/comments/form', locals: { comment: @comment, url: post_comments_path(@post, @comment) }
 
-= render partial: 'web/posts/comments/show', locals: { comments: @post.comments }
+    = render partial: 'web/posts/comments/show', locals: { comments: @post.comments.order(created_at: :desc) }

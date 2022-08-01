@@ -66,6 +66,8 @@ group :production do
   gem 'pg'
 end
 
+gem 'ancestry'
+
 gem 'devise'
 
 gem 'i18n-tasks'

@@ -4,8 +4,8 @@ h1 = t('.title')
     .card.border-success.mb-2
       .card-body
         .card-title
-          h2 = link_to post.title, post_path(post), class: 'text-success'
-        .card-text
+          h2 = link_to post.title, post_path(post), class: 'text-success text-decoration-none'
+        .card-text.text-truncate
           p = post.body
         .card-footer.bg-transparent.border-success
           = render partial: 'web/shared/footer', locals: { email: post.creator.email, created_at: post.created_at }

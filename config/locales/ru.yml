@@ -30,6 +30,8 @@ ru:
         create:
           failure: Чтот пошло не так
           success: Коментарий создан
+        show:
+          reply: Ответить
       create:
         succes: Пост создан
         failure: Исправте ошибки
