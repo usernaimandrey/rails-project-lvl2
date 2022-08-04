@@ -1,4 +1,3 @@
 web: bundle exec puma -t 5:5 -p ${PORT:-3000} -e ${RACK_ENV:-development}
 frontend: bin/webpack-dev-server
-release: bin/rake db:rollback step=2
-         bin/rake db:migrate
+release: bin/rake db:migrate
