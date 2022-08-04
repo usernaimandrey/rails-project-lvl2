@@ -19,7 +19,7 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
     assert_difference @post_no_like.likes_count do
       post post_likes_path(@post_no_like), params: @attributes
     end
-    new_like = Post::Like.find_by(@attributes)
+    new_like = PostLike.find_by(@attributes)
 
     assert_redirected_to post_path(@post_no_like)
     assert { new_like }
@@ -31,7 +31,7 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
     assert_difference post.likes_count do
       delete post_like_path(post, like)
     end
-    delete_like = Post::Like.find_by(id: like)
+    delete_like = PostLike.find_by(id: like)
 
     assert_redirected_to post_path(post)
     assert_not(delete_like)
@@ -42,7 +42,7 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
     assert_no_difference @post_no_like.likes_count do
       post post_likes_path(@post_no_like), params: @attributes
     end
-    new_like = Post::Like.find_by(@attributes)
+    new_like = PostLike.find_by(@attributes)
 
     assert_redirected_to new_user_session_path
     assert_not(new_like)
