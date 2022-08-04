@@ -39,4 +39,4 @@ Style/AsciiComments:
   Enabled: false
 
 Rails/FilePath:
-  EnforcedStyle: arguments
+  EnforcedStyle: slashes
