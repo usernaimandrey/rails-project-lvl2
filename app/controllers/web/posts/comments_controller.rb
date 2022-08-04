@@ -5,7 +5,7 @@ module Web
     def create
       @post = resources_post
       if params[:parent_id]
-        parent = Post::Comment.find(params[:parent_id])
+        parent = PostComment.find(params[:parent_id])
         @comment = parent.children.build(comment_params.merge(post_id: @post.id))
       else
         @comment = @post.comments.build(comment_params)

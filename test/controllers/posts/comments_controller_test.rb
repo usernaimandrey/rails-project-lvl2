@@ -18,7 +18,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
 
   test '#create' do
     post post_comments_path(@post), params: { post_comment: @attributes }
-    new_comment = Post::Comment.find_by(@attributes)
+    new_comment = PostComment.find_by(@attributes)
 
     assert { new_comment }
     assert_redirected_to post_path(@post)
@@ -29,7 +29,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     assert_not(comment.has_children?)
 
     post post_comments_path(@post), params: { parent_id: comment.id, post_comment: @attributes }
-    new_comment = Post::Comment.find_by(@attributes)
+    new_comment = PostComment.find_by(@attributes)
 
     assert { new_comment }
     assert { comment.has_children? }
@@ -39,7 +39,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     @attributes.delete(:content)
     post post_comments_path(@post), params: { post_comment: @attributes }
 
-    new_comment = Post::Comment.find_by(@attributes)
+    new_comment = PostComment.find_by(@attributes)
 
     assert_not(new_comment)
     assert_response 422
@@ -49,7 +49,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     sign_out @user
     post post_comments_path(@post), params: { post_comment: @attributes }
 
-    new_comment = Post::Comment.find_by(@attributes)
+    new_comment = PostComment.find_by(@attributes)
 
     assert_not(new_comment)
     assert_redirected_to new_user_session_path
