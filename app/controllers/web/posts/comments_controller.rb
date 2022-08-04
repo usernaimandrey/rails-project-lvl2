@@ -3,7 +3,7 @@
 module Web
   class Posts::CommentsController < Posts::ApplicationController
     def create
-      @post = Post.find(params[:post_id])
+      @post = resources_post
       if params[:parent_id]
         parent = Post::Comment.find(params[:parent_id])
         @comment = parent.children.build(comment_params.merge(post_id: @post.id))
@@ -14,7 +14,8 @@ module Web
       if @comment.save
         redirect_to post_path(@post), notice: t('.success')
       else
-        flash[:alert] = t('.failure')
+        flash.now[:alert] = t('.failure')
+        @comments = @post.comments.order(created_at: :desc)
         render 'web/posts/show', status: :unprocessable_entity
       end
     end

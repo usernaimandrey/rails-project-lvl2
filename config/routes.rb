@@ -9,8 +9,8 @@ Rails.application.routes.draw do
 
     resources :posts, only: %i[show new create destroy] do
       scope module: :posts do
-        # resources :comments, only: %i[create]
         post 'comments(/:parent_id)', to: 'comments#create', as: :comments
+        resources :likes, only: %i[create destroy]
       end
     end
   end

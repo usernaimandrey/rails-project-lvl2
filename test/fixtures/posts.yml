@@ -3,3 +3,9 @@ one:
   body: MyText
   creator: vasy
   category: ruby
+
+no_like_no_comment:
+  title: MyString
+  body: MyText
+  creator: pety
+  category: ruby

@@ -11,12 +11,14 @@ p
   - if user_signed_in? && @post.creator_id == current_user.id
       = link_to t('.delete'), @post, data: { confirm: t('.question') }, method: :delete
 
-  = render partial: 'web/shared/footer', locals: { email: @post.creator.email, created_at: @post.created_at }
+  .d-flex.justify-content-between
+    = render partial: 'web/shared/footer', locals: { email: @post.creator.email, created_at: @post.created_at }
 
-h3
-  | #{t('.title')}
+    = render partial: 'web/posts/likes/links', locals: { like: @like_current_user }
 
 - if user_signed_in?
+    h3
+      | #{t('.title')}
     = render partial: 'web/posts/comments/form', locals: { comment: @comment, url: post_comments_path(@post, @comment) }
 
-    = render partial: 'web/posts/comments/show', locals: { comments: @post.comments.order(created_at: :desc) }
+    = render partial: 'web/posts/comments/show', locals: { comments: @comments }

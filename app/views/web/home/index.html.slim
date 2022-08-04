@@ -9,3 +9,5 @@ h1 = t('.title')
           p = post.body
         .card-footer.bg-transparent.border-success
           = render partial: 'web/shared/footer', locals: { email: post.creator.email, created_at: post.created_at }
+          .text-secondary
+            = t('likes', count: post.likes_count)

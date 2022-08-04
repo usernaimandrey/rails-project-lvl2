@@ -1,6 +1,7 @@
 ---
 ru:
   log_in: Вход
+  likes: "Понравилось: %{count}"
   sign_up: Регистрация
   password: Забыли пароль?
   web:
@@ -25,22 +26,4 @@ ru:
           one: "приблизительно %{count} минута"
           other: "около %{count} минуты"
         fresh: меньше минуты
-    posts:
-      comments:
-        create:
-          failure: Чтот пошло не так
-          success: Коментарий создан
-        show:
-          reply: Ответить
-      create:
-        succes: Пост создан
-        failure: Исправте ошибки
-      destroy:
-        succes: Пост удален
-        failure: Чтот пошло не так
-        failure_permision: Удалить пост может только его создатель!
-      show:
-        all_posts: Все посты
-        delete: Удалить
-        title: Коментарий
-        question: Вы уверенны?
+      

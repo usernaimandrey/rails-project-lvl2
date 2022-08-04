@@ -3,6 +3,7 @@ ru:
   devise:
     failure:
       user:
+        not_found_in_database: Нет пользователя с такой почтой
         invalid: Не правельный логин или пароль.
         unauthenticated: Вам необходимо войти в систему или зарегистрироваться.
     registrations:

@@ -7,7 +7,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
 
   setup do
     @user = users(:pety)
-    @post = posts(:one)
+    @post = posts(:no_like_no_comment)
     @attributes = {
       content: Faker::Lorem.sentence,
       user_id: @user.id,

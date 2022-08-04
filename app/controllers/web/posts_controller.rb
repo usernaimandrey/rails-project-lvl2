@@ -7,6 +7,9 @@ module Web
     def show
       @post = Post.find(params[:id])
       @comment = @post.comments.build
+      @comments = @post.comments.order(created_at: :desc)
+      @like = @post.likes.build
+      @like_current_user = @post.likes.find_by(user_id: current_user)
     end
 
     def new
@@ -19,7 +22,7 @@ module Web
       if @post.save
         redirect_to root_path, notice: t('.succes')
       else
-        flash[:alert] = t('.failure')
+        flash.now[:alert] = t('.failure')
         render :new, status: :unprocessable_entity
       end
     end

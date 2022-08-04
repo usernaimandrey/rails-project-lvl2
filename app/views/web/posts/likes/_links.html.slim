@@ -1,0 +1,10 @@
+- if like.present?
+    .d-flex
+      .mx-2 = @post.likes_count
+      a.text-secondary[href=post_like_path(@post, @like_current_user) data-method="delete" rel="nofollow"]
+        i.fa-solid.fa-thumbs-up
+- else
+    .d-flex
+      .mx-2 = @post.likes_count
+      a.text-secondary[href=post_likes_path(@post, @like) data-method="post" rel="nofollow"]
+        i.fa-regular.fa-thumbs-up
