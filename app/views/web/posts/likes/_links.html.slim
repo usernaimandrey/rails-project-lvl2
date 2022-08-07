@@ -1,10 +1,10 @@
 - if like.present?
     .d-flex
       .mx-2 = @post.likes_count || 0
-      a.text-secondary[href=post_like_path(@post, like) data-method="delete" rel="nofollow"]
-        i.fa-solid.fa-thumbs-up
+      = link_to(post_like_path(@post, like, anchor: 'likes-section'), rel: :nofollow, method: :delete, class: 'text-dark') do
+          i.fa-solid.fa-thumbs-up
 - else
     .d-flex
       .mx-2 = @post.likes_count || 0
-      a.text-secondary[href=post_likes_path(@post, @like) data-method="post" rel="nofollow"]
-        i.fa-regular.fa-thumbs-up
+      = link_to(post_likes_path(@post, anchor: 'likes-section'), rel: :nofollow, method: :post, class: 'text-dark') do
+          i.fa-regular.fa-thumbs-up

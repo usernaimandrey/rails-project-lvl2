@@ -1,12 +1,12 @@
 .container.mb-2.border-bottom.py-2
   nav.navbar.navbar-expand-lg style='background-color: #e3f2fd;'
     .container-fluid
-      = link_to root_path, class: 'navbar-brand'
+      = link_to root_path, class: 'navbar-brand text-dark'
         i.fa-solid.fa-home
       ul.navbar-nav.me-auto.mb-2.mb-lg-0
       - if user_signed_in?
         li.nav-item.mb-1 style='list-style-type: none;'
-          = link_to t('.add_post'), new_post_path, class: 'nav-link'
+          = link_to t('.add_post'), new_post_path, class: 'nav-link text-dark'
         li.nav-item style='list-style-type: none;'
           = link_to t('.log_out'), destroy_user_session_path, method: :delete, class: 'btn btn-danger'
       - else
