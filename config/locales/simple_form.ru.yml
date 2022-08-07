@@ -8,6 +8,9 @@ ru:
       post:
         body: 'Содержание: не менее 50 символов'
         title: Название поста
+    hints:
+      user:
+        password: Минимум 6 символов
     required:
       mark: "*"
       text: обязательное

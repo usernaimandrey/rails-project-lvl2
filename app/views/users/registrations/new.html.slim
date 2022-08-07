@@ -9,11 +9,6 @@ h2
   br
 
   .form-inputs
-    - if @minimum_password_length
-      em
-        | (
-        = @minimum_password_length
-        |  characters minimum)
     = f.input :password, required: true, autocomplete: 'new-password', input_html: { class: 'form-control' }
   br
 

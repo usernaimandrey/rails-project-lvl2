@@ -14,7 +14,6 @@ module Web
       if @comment.save
         redirect_to post_path(@post), notice: t('.success')
       else
-        flash.now[:alert] = t('.failure')
         @comments = @post.comments.order(created_at: :desc)
         render 'web/posts/show', status: :unprocessable_entity
       end

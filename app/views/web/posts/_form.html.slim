@@ -1,5 +1,4 @@
 = simple_form_for post do |f|
-
     .form-inputs
       = f.input :title
     br
@@ -9,7 +8,7 @@
     br
 
     .form-inputs
-      = f.association :category, selected: :first || task.category
+      = f.association :category
     br
 
     = f.button :submit, class: 'btn btn-primary mb-2'

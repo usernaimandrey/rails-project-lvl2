@@ -9,6 +9,8 @@ ru:
       index:
         title: 'Список статей:'
     shared:
+      errors:
+        failure: 'Исправте ошибки: '
       footer:
         days_ago:
           few: "%{count} дня"

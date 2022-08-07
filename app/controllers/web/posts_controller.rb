@@ -22,7 +22,6 @@ module Web
       if @post.save
         redirect_to root_path, notice: t('.succes')
       else
-        flash.now[:alert] = t('.failure')
         render :new, status: :unprocessable_entity
       end
     end

@@ -10,6 +10,7 @@
         -if comment.has_children?
           = render partial: 'web/posts/comments/show', locals: { comments: comment.children }
         div
+        - if user_signed_in?
           a.text-decoration-none[data-bs-toggle="collapse" href="#collapse-#{comment.id}" role="button" aria-expanded="false"] = t('.reply')
           .collapse[id="collapse-#{comment.id}"]
             .mb-2.m-4

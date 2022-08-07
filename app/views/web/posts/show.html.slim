@@ -1,3 +1,4 @@
+= render partial: 'web/shared/errors', locals: { object: @comment }
 p
   | #{link_to t('.all_posts'), root_path} / #{@post.category.name}
 
@@ -21,4 +22,4 @@ p
       | #{t('.title')}
     = render partial: 'web/posts/comments/form', locals: { comment: @comment, url: post_comments_path(@post, @comment) }
 
-    = render partial: 'web/posts/comments/show', locals: { comments: @comments }
+= render partial: 'web/posts/comments/show', locals: { comments: @comments }

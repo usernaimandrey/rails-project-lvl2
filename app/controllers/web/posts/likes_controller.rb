@@ -5,14 +5,11 @@ module Web
     def create
       @post = resources_post
       if liked?(@post)
-        @comment = @post.comments.build
-        @comments = @post.comments.order(created_at: :desc)
-        render 'web/posts/show', status: :unprocessable_entity
+        redirect_to post_path(@post), status: :unprocessable_entity
         return
-      else
-        @like = @post.likes.build(like_params)
       end
 
+      @like = @post.likes.build(like_params)
       if @like.save
         redirect_to post_path(@post)
       else
@@ -27,10 +24,13 @@ module Web
       if liked?(@post)
         @like = @post.likes.find(params[:id])
       else
-        redirect_to post_path(@post), status: :unprocessable_entity
+        @comment = @post.comments.build
+        @comments = @post.comments.order(created_at: :desc)
+        render 'web/posts/show', status: :unprocessable_entity
+        return
       end
 
-      if @like.destroy
+      if @like.present? && @like.destroy
         redirect_to post_path(@post)
       else
         redirect_to post_path(@post), status: :unprocessable_entity
