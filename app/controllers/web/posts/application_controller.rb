@@ -4,8 +4,8 @@ module Web
   class Posts::ApplicationController < ApplicationController
     before_action :authenticate_user!
 
-    def resources_post
-      Post.find(params[:post_id])
+    def resource_post
+      @resource_post ||= Post.find params[:post_id]
     end
   end
 end

@@ -3,19 +3,19 @@
 module Web
   class Posts::CommentsController < Posts::ApplicationController
     def create
-      @post = resources_post
+      resource_post
       if params[:parent_id]
         parent = PostComment.find(params[:parent_id])
-        @comment = parent.children.build(comment_params.merge(post_id: @post.id))
+        @comment = parent.children.build(comment_params.merge(post_id: @resource_post.id))
       else
-        @comment = @post.comments.build(comment_params)
+        @comment = @resource_post.comments.build(comment_params)
       end
 
       if @comment.save
-        redirect_to post_path(@post), notice: t('.success')
+        redirect_to @resource_post, notice: t('.success')
       else
-        @comments = @post.comments.order(created_at: :desc)
-        render 'web/posts/show', status: :unprocessable_entity
+        flash[:alert] = @comment&.errors&.full_messages&.join
+        redirect_to @resource_post
       end
     end
 

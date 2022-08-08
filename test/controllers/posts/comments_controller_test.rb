@@ -42,7 +42,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     new_comment = PostComment.find_by(@attributes)
 
     assert_not(new_comment)
-    assert_response 422
+    assert_response :redirect
   end
 
   test '#create with not authorized' do
