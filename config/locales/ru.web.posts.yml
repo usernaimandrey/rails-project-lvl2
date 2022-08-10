@@ -2,6 +2,8 @@
 ru:
   web:
     posts:
+      new:
+        header: Создание поста
       comments:
         create:
           failure: Чтот пошло не так

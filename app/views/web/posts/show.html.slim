@@ -12,7 +12,7 @@ p
       = link_to t('.delete'), @post, data: { confirm: t('.question') }, method: :delete
 
   .d-flex.justify-content-between
-    = render partial: 'web/shared/footer', locals: { email: @post.creator.email, created_at: @post.created_at }
+    = render partial: 'web/shared/creation_data', locals: { email: @post.creator.email, created_at: @post.created_at }
 
     = render partial: 'web/posts/likes/links', locals: { like: @like_current_user }
 

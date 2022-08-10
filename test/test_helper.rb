@@ -3,6 +3,7 @@
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 require 'rails/test_help'
+require_relative '../app/helpers/application_helper'
 
 class ActiveSupport::TestCase
   # Run tests in parallel with specified workers

@@ -5,7 +5,7 @@
         .card-text
           = comment.content
       .card-footer.text-muted.border-bottom
-        = render partial: 'web/shared/footer', locals: { email: comment.user.email, created_at: comment.created_at }
+        = render partial: 'web/shared/creation_data', locals: { email: comment.user.email, created_at: comment.created_at }
 
         -if comment.has_children?
           = render partial: 'web/posts/comments/show', locals: { comments: comment.children }

@@ -4,6 +4,9 @@ ru:
   likes: "Понравилось: %{count}"
   sign_up: Регистрация
   password: Забыли пароль?
+  layouts:
+    application:
+      title: Коллективный блог
   web:
     home:
       index:
@@ -11,21 +14,4 @@ ru:
     shared:
       errors:
         failure: 'Исправте ошибки: '
-      footer:
-        days_ago:
-          few: "%{count} дня"
-          many: "%{count} дней"
-          one: "%{count} день"
-          other: "%{count} дня"
-        hours_ago: 
-          few: "около %{count} часов"
-          many: " около %{count} часов"
-          one: "приблизительно %{count} час"
-          other: "около %{count} часа"
-        minutes_ago:
-          few: " около %{count} минут"
-          many: "около %{count} минут"
-          one: "приблизительно %{count} минута"
-          other: "около %{count} минуты"
-        fresh: меньше минуты
       

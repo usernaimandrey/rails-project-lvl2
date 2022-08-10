@@ -4,6 +4,7 @@ module Web
   class Posts::CommentsController < Posts::ApplicationController
     def create
       comment = resource_post.comments.build(comment_params)
+      comment.user = current_user
       if comment.save
         redirect_to resource_post, notice: t('.success')
       else
@@ -15,8 +16,7 @@ module Web
     private
 
     def comment_params
-      comment_params = params.require(:post_comment).permit(:content, :parent_id)
-      comment_params.merge(user: current_user)
+      params.require(:post_comment).permit(:content, :parent_id)
     end
   end
 end
