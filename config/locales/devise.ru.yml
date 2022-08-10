@@ -1,15 +1,21 @@
 ---
 ru:
-  devise:
+  devise:  
     failure:
       user:
         not_found_in_database: Нет пользователя с такой почтой
         invalid: Не правельный логин или пароль.
         unauthenticated: Вам необходимо войти в систему или зарегистрироваться.
     registrations:
+      new:
+        sign_up: Регистрация
+        title: Форма регистрации
       destroyed: "До свидания! Ваша учетная запись успешно удалена. Мы надеемся увидеть Вас снова скоро."
       signed_up: "Добро пожаловать! Вы успешно зарегистрировались"
     sessions:
+      new:
+        title: Вход
+        log_in: Войти 
       signed_in: "Выполнен вход."
       signed_out: "Выполнен выход."
       already_signed_out: "Выполнен выход."
