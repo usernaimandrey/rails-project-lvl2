@@ -28,7 +28,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     comment = post_comments(:one)
     assert_not(comment.has_children?)
 
-    post post_comments_path(@post), params: { parent_id: comment.id, post_comment: @attributes }
+    post post_comments_path(@post), params: { post_comment: @attributes.merge(parent_id: comment.id) }
     new_comment = PostComment.find_by(@attributes)
 
     assert { new_comment }

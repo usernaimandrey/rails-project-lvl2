@@ -19,6 +19,6 @@ p
 - if user_signed_in?
     h3
       | #{t('.title')}
-    = render partial: 'web/posts/comments/form', locals: { comment: @comment, url: post_comments_path(@post, @comment) }
+    = render partial: 'web/posts/comments/form', locals: { comment: @comment, parent_id: nil, url: post_comments_path(@post, @comment) }
 
 = render partial: 'web/posts/comments/show', locals: { comments: @comments }

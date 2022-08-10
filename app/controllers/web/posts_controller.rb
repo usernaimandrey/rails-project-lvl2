@@ -8,8 +8,7 @@ module Web
       @post = Post.find(params[:id])
       @comment = @post.comments.build
       @comments = @post.comments.order(created_at: :desc)
-      @like = @post.likes.build
-      @like_current_user = @post.likes.find_by(user_id: current_user)
+      @like_current_user = @post.likes.find_by(user: current_user)
     end
 
     def new
@@ -17,7 +16,7 @@ module Web
     end
 
     def create
-      @post = Post.new(post_params)
+      @post = current_user.posts.build(post_params)
 
       if @post.save
         redirect_to root_path, notice: t('.succes')
@@ -42,8 +41,7 @@ module Web
     private
 
     def post_params
-      post_params = params.require(:post).permit(:title, :body, :creator_id, :category_id)
-      post_params.merge(creator_id: current_user.id)
+      params.require(:post).permit(:title, :body, :category_id)
     end
   end
 end
