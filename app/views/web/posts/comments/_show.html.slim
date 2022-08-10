@@ -1,5 +1,5 @@
 .mb-3.mt-3
-  - comments.arrange.each do |comment, _sub_item|
+  - comments.each do |comment, child_comments|
     .card.mb-2
       .card-body
         .card-text
@@ -8,10 +8,10 @@
         = render partial: 'web/shared/creation_data', locals: { email: comment.user.email, created_at: comment.created_at }
 
         -if comment.has_children?
-          = render partial: 'web/posts/comments/show', locals: { comments: comment.children }
+          = render partial: 'web/posts/comments/show', locals: { comments: child_comments, current_comment: current_comment, post: post }
         div
         - if user_signed_in?
           a.text-decoration-none[data-bs-toggle="collapse" href="#collapse-#{comment.id}" role="button" aria-expanded="false"] = t('.reply')
           .collapse[id="collapse-#{comment.id}"]
             .mb-2.m-4
-              = render partial: 'web/posts/comments/form', locals: { comment: @comment, parent_id: comment.id, url: post_comments_path(@post, @comment) }
+              = render partial: 'web/posts/comments/form', locals: { comment: current_comment, parent_id: comment.id, url: post_comments_path(post, current_comment) }
