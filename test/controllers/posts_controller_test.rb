@@ -13,7 +13,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
       title: Faker::Lorem.sentence,
       body: Faker::Lorem.paragraph_by_chars(number: 51, supplemental: false),
       category_id: categories(:ruby).id,
-      creator_id: @user.id
+      creator: @user
     }
   end
 
@@ -66,7 +66,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     delete post_path(@post)
 
     assert_redirected_to root_path
-    assert_not(Post.find_by(id: @post))
+    assert_not(Post.find_by(id: @post.id))
   end
 
   test '#destroy with not authorized' do
@@ -74,7 +74,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     delete post_path(@post)
 
     assert_redirected_to new_user_session_path
-    assert { Post.find_by(id: @post) }
+    assert { Post.find_by(id: @post.id) }
   end
 
   test '#destroy created by another user' do
@@ -84,6 +84,6 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     delete post_path(@post)
 
     assert_response 422
-    assert { Post.find_by(id: @post) }
+    assert { Post.find_by(id: @post.id) }
   end
 end

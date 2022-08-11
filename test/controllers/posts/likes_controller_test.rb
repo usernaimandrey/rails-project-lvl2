@@ -7,30 +7,27 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
 
   setup do
     @user = users(:vasy)
-    @post_no_like = posts(:no_like_no_comment)
+    @post_without_likes = posts(:post_without_likes)
     @attributes = {
       user_id: @user.id,
-      post_id: @post_no_like.id
+      post_id: @post_without_likes.id
     }
     sign_in @user
   end
 
   test '#create' do
-    assert_difference @post_no_like.likes_count do
-      post post_likes_path(@post_no_like), params: @attributes
-    end
+    post post_likes_path(@post_without_likes), params: @attributes
     new_like = PostLike.find_by(@attributes)
 
-    assert_redirected_to post_path(@post_no_like)
+    assert_redirected_to post_path(@post_without_likes)
     assert { new_like }
   end
 
   test 'destroy' do
     post = posts(:one)
     like = post_likes(:one)
-    assert_difference post.likes_count do
-      delete post_like_path(post, like)
-    end
+    delete post_like_path(post, like)
+
     delete_like = PostLike.find_by(id: like)
 
     assert_redirected_to post_path(post)
@@ -39,34 +36,36 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
 
   test '#create with not authorized' do
     sign_out @user
-    assert_no_difference @post_no_like.likes_count do
-      post post_likes_path(@post_no_like), params: @attributes
-    end
+    post post_likes_path(@post_without_likes), params: @attributes
     new_like = PostLike.find_by(@attributes)
 
     assert_redirected_to new_user_session_path
     assert_not(new_like)
   end
 
-  test 'duble click on like' do
-    post post_likes_path(@post_no_like), params: @attributes
+  test 'double click on like' do
+    post post_likes_path(@post_without_likes), params: @attributes
+    @post_without_likes.reload
+    likes_count = @post_without_likes.likes_count
 
-    assert_no_difference @post_no_like.likes_count do
-      post post_likes_path(@post_no_like), params: @attributes
-    end
+    post post_likes_path(@post_without_likes), params: @attributes
+    @post_without_likes.reload
 
     assert_response :redirect
+    assert { likes_count == @post_without_likes.likes_count }
   end
 
-  test 'duble click on unlike' do
+  test 'double click on unlike' do
     post = posts(:one)
     like = post_likes(:one)
     delete post_like_path(post, like)
+    post.reload
+    likes_count = post.likes_count
 
-    assert_no_difference post.likes_count do
-      delete post_like_path(post, like)
-    end
+    delete post_like_path(post, like)
+    post.reload
 
     assert_response :redirect
+    assert { likes_count == post.likes_count }
   end
 end
