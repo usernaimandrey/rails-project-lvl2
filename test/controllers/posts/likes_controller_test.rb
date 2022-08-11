@@ -9,8 +9,8 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
     @user = users(:vasy)
     @post_without_likes = posts(:post_without_likes)
     @attributes = {
-      user_id: @user.id,
-      post_id: @post_without_likes.id
+      user: @user,
+      post: @post_without_likes
     }
     sign_in @user
   end
