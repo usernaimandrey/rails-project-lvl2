@@ -16,8 +16,8 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test '#create' do
-    post post_likes_path(@post_without_likes), params: @attributes
-    new_like = PostLike.find_by(@attributes)
+    post post_likes_path(@post_without_likes)
+    new_like = @post_without_likes.likes.find_by(user: @user)
 
     assert_redirected_to post_path(@post_without_likes)
     assert { new_like }
