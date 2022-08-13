@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
-  def formattaed_time_creation(created_at)
+  def formatted_time_creation(created_at)
     from_time = Time.current
     years = (from_time.year - created_at.year).years
     months = (from_time.month - created_at.month).months
