@@ -23,7 +23,7 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
     assert { new_like }
   end
 
-  test 'destroy' do
+  test '#destroy' do
     post = posts(:one)
     like = post_likes(:one)
     delete post_like_path(post, like)
@@ -34,38 +34,33 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
     assert_not(delete_like)
   end
 
-  test '#create with not authorized' do
+  test 'create with not authorized' do
     sign_out @user
-    post post_likes_path(@post_without_likes), params: @attributes
-    new_like = PostLike.find_by(@attributes)
+    post post_likes_path(@post_without_likes)
+    new_like = @post_without_likes.likes.find_by(user: @user)
 
     assert_redirected_to new_user_session_path
     assert_not(new_like)
   end
 
   test 'double click on like' do
-    post post_likes_path(@post_without_likes), params: @attributes
-    @post_without_likes.reload
-    likes_count = @post_without_likes.likes_count
-
-    post post_likes_path(@post_without_likes), params: @attributes
+    post post_likes_path(@post_without_likes)
+    post post_likes_path(@post_without_likes)
     @post_without_likes.reload
 
     assert_response :redirect
-    assert { likes_count == @post_without_likes.likes_count }
+    assert { @post_without_likes.likes_count == 1 }
   end
 
   test 'double click on unlike' do
     post = posts(:one)
     like = post_likes(:one)
-    delete post_like_path(post, like)
-    post.reload
-    likes_count = post.likes_count
 
+    delete post_like_path(post, like)
     delete post_like_path(post, like)
     post.reload
 
     assert_response :redirect
-    assert { likes_count == post.likes_count }
+    assert(post.likes_count.zero?)
   end
 end

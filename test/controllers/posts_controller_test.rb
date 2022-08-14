@@ -12,8 +12,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     @attributes = {
       title: Faker::Lorem.sentence,
       body: Faker::Lorem.paragraph_by_chars(number: 51, supplemental: false),
-      category_id: categories(:ruby).id,
-      creator: @user
+      category_id: categories(:ruby).id
     }
   end
 
@@ -38,7 +37,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
   test '#create' do
     post posts_path, params: { post: @attributes }
-    new_post = Post.find_by(@attributes)
+    new_post = @user.posts.find_by(@attributes)
 
     assert_redirected_to root_path
     assert { new_post }
@@ -47,7 +46,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   test '#create with not authorized' do
     sign_out @user
     post posts_path, params: { post: @attributes }
-    new_post = Post.find_by(@attributes)
+    new_post = @user.posts.find_by(@attributes)
 
     assert_redirected_to new_user_session_path
     assert_not(new_post)
@@ -56,7 +55,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   test '#create with invalid attributes' do
     @attributes.delete(:title)
     post posts_path, params: { post: @attributes }
-    new_post = Post.find_by(@attributes)
+    new_post = @user.posts.find_by(@attributes)
 
     assert_response 422
     assert_not(new_post)

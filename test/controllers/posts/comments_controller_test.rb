@@ -9,16 +9,14 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     @user = users(:pety)
     @post = posts(:post_without_likes)
     @attributes = {
-      content: Faker::Lorem.sentence,
-      user_id: @user.id,
-      post_id: @post.id
+      content: Faker::Lorem.sentence
     }
     sign_in @user
   end
 
   test '#create' do
     post post_comments_path(@post), params: { post_comment: @attributes }
-    new_comment = PostComment.find_by(@attributes)
+    new_comment = @post.comments.find_by(@attributes, user: @user)
 
     assert { new_comment }
     assert_redirected_to post_path(@post)
@@ -29,17 +27,17 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     assert_not(comment.has_children?)
 
     post post_comments_path(@post), params: { post_comment: @attributes.merge(parent_id: comment.id) }
-    new_comment = PostComment.find_by(@attributes)
+    new_comment = comment.children.find_by(@attributes, user: @user)
 
     assert { new_comment }
     assert { comment.has_children? }
   end
 
   test '#create with invalid params' do
-    @attributes.delete(:content)
+    @attributes[:content] = nil
     post post_comments_path(@post), params: { post_comment: @attributes }
 
-    new_comment = PostComment.find_by(@attributes)
+    new_comment = @post.comments.find_by(@attributes, user: @user)
 
     assert_not(new_comment)
     assert_response :redirect
@@ -49,7 +47,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     sign_out @user
     post post_comments_path(@post), params: { post_comment: @attributes }
 
-    new_comment = PostComment.find_by(@attributes)
+    new_comment = @post.comments.find_by(@attributes, user: @user)
 
     assert_not(new_comment)
     assert_redirected_to new_user_session_path

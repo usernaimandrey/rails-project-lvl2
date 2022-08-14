@@ -7,7 +7,7 @@
       .card-footer.text-muted.border-bottom
         = render partial: 'web/shared/creation_data', locals: { email: comment.user.email, created_at: comment.created_at }
 
-        -if comment.has_children?
+        -if child_comments
           = render partial: 'web/posts/comments/list', locals: { comments: child_comments, current_comment: current_comment, post: post }
         div
         - if user_signed_in?
