@@ -7,8 +7,8 @@ module Web
     def show
       @post = Post.find(params[:id])
       @comment = @post.comments.build
-      @comments = @post.comments.order(created_at: :desc)
-      @like_current_user = @post.likes.find_by(user: current_user)
+      @comments = @post.comments.includes(:user).arrange
+      @current_user_like_from_post = @post.likes.find_by(user: current_user)
     end
 
     def new

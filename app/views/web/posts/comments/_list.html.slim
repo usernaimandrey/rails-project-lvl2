@@ -8,7 +8,7 @@
         = render partial: 'web/shared/creation_data', locals: { email: comment.user.email, created_at: comment.created_at }
 
         -if comment.has_children?
-          = render partial: 'web/posts/comments/show', locals: { comments: child_comments, current_comment: current_comment, post: post }
+          = render partial: 'web/posts/comments/list', locals: { comments: child_comments, current_comment: current_comment, post: post }
         div
         - if user_signed_in?
           a.text-decoration-none[data-bs-toggle="collapse" href="#collapse-#{comment.id}" role="button" aria-expanded="false"] = t('.reply')
