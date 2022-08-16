@@ -53,7 +53,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test '#create with invalid attributes' do
-    @attributes.delete(:title)
+    @attributes[:title] = nil
     post posts_path, params: { post: @attributes }
     new_post = @user.posts.find_by(@attributes)
 
