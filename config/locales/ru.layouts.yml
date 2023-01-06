@@ -6,6 +6,7 @@ ru:
         footer_title: "© Shlyapnikov Ltd, %{year}"
         link: 'https://ru.hexlet.io/u/farmacevt'
       nav:
+        menu: Меню
         add_post: Добавить статью
         log_out: Выход
         sign_in: Вход

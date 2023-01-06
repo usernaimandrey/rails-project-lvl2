@@ -1,6 +1,12 @@
 ru:
   devise:
+    unlocks:
+      resend_unlock_instructions: Повторно отправить инструкции для разблокировки
+      new:
+        resend_unlock_instructions: Отпаравить
     confirmations:
+      new:
+        resend_confirmation_instructions: Отправить повторно инструкции
       user:
         confirmed: Аккаунт активирован, можно заходить.
     passwords:
@@ -34,4 +40,4 @@ ru:
       links:
         password: Забыли пароль?
         didn_t_receive_confirmation_instructions: Не пришло письмо для активации аккаунта?
-        didn_t_receive_unlock_instructions: Не пришло письмо для активации аккаунта?
+        didn_t_receive_unlock_instructions: Не пришло письмо для разблокировки аккаунта?

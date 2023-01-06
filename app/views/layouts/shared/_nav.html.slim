@@ -5,12 +5,17 @@
         i.fa-solid.fa-home
       ul.navbar-nav.me-auto.mb-2.mb-lg-0
       - if user_signed_in?
-        li.nav-item.mb-1 style='list-style-type: none;'
+        li.nav-item.m-2 style='list-style-type: none;'
           = link_to t('.add_post'), new_post_path, class: 'nav-link text-dark'
-        li.nav-item style='list-style-type: none;'
-          = link_to t('.log_out'), destroy_user_session_path, method: :delete, class: 'btn btn-danger'
+        .dropdown
+          a.btn.btn-secondary.dropdown-toggle[href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"] = t('.menu')
+          ul.dropdown-menu[aria-labelledby="dropdownMenuLink"]
+            li
+              = link_to current_user.email, '#', class: 'dropdown-item'
+            li
+              = link_to t('.log_out'), destroy_user_session_path, method: :delete, class: 'dropdown-item'
       - else
-        li.nav-item.mb-2 style='list-style-type: none;'
+        li.nav-item.m-2 style='list-style-type: none;'
           = link_to t('.sign_in'), new_user_session_path, class: 'btn btn-light'
-        li.nav-item.mb-2  style='list-style-type: none;'
+        li.nav-item.m-2  style='list-style-type: none;'
           = link_to t('.sign_up'), new_user_registration_path, class: 'btn btn-light'

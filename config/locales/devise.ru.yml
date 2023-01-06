@@ -1,6 +1,6 @@
 ---
 ru:
-  devise:  
+  devise:
     failure:
       user:
         not_found_in_database: Нет пользователя с такой почтой
@@ -19,6 +19,17 @@ ru:
       signed_in: "Выполнен вход."
       signed_out: "Выполнен выход."
       already_signed_out: "Выполнен выход."
+    mailer:
+      confirmation_instructions:
+        subject: "Инструкции для подтверждения почты"
+      reset_password_instructions:
+        subject: "Инструкции для сброса парол"
+      unlock_instructions:
+        subject: "Инструкции для разблокировки"
+      email_changed:
+        subject: "Смена почты"
+      password_change:
+        subject: "Смена пароля"
   errors:
     messages:
       already_confirmed: "был уже подтвержден, попробуйте войти"
