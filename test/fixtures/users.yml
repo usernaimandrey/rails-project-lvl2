@@ -1,5 +1,11 @@
+DEFAULTS: &DEFAULTS
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  confirmed_at: <%= Time.current %>
+
 vasy:
+  <<: *DEFAULTS
   email: vasy@mail.ru
 
 pety:
+  <<: *DEFAULTS
   email: pety@gmail.com

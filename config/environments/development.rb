@@ -41,6 +41,20 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+  config.action_mailer.default_url_options = { host: ENV.fetch('HOST', nil), port: ENV.fetch('PORT', nil) }
+  # config.action_mailer.delivery_method = :file
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+    user_name: ENV.fetch('EMAIL_USER_NAME', nil),
+    password: ENV.fetch('EMAIL_PASSWORD', nil),
+    address: ENV.fetch('EMAIL_ADDRESS', nil),
+    domain: ENV.fetch('EMAIL_DOMAIN', nil),
+    port: ENV.fetch('EMAIL_PORT', '25'),
+    authentication: :cram_md5
+    # tls: true
+  }
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 

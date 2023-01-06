@@ -1,0 +1,37 @@
+ru:
+  devise:
+    confirmations:
+      user:
+        confirmed: Аккаунт активирован, можно заходить.
+    passwords:
+      edit:
+        change_your_password: Востоновить пароль
+        change_my_password: Отправить
+        new_password: Новый пароль
+        confirm_new_password: Подтвердите пароль
+      new:
+        forgot_your_password: Востоновление пароля
+        send_me_reset_password_instructions: Отправить
+      user:
+        updated: Пароль изменен
+        send_instructions: На почту отправленны инструкции для изменением пароля
+    registrations:
+      user:
+        signed_up_but_unconfirmed: Инструкции с сылкой для активации аккаунта отправлены вам на почту.
+    mailer:
+      reset_password_instructions:
+        greeting: Здравствуйте %{recipient}
+        instruction: Кто-то запросил ссылку для смены пароля. Вы можете сделать это по ссылке ниже
+        instruction_2: Если вы этого не запрашивали, проигнорируйте это письмо.
+        instruction_3: Ваш пароль не изменится, пока вы не перейдете по ссылке выше и не создадите новый.
+        action: Изменить пароль
+      confirmation_instructions:
+        greeting: Здравствуйте %{recipient}
+        instruction: Для активации почты прейдите по ссылке и выполните вход
+        action: Активировать email 
+    shared:
+      minimum_password_length: Минимально %{count} символов
+      links:
+        password: Забыли пароль?
+        didn_t_receive_confirmation_instructions: Не пришло письмо для активации аккаунта?
+        didn_t_receive_unlock_instructions: Не пришло письмо для активации аккаунта?
