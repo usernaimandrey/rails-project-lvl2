@@ -1,0 +1,9 @@
+h1 = t('.greating', user: @creator.email)
+
+h2 = t('.new_post_comment')
+
+p = t('.content', content: @comment.content)
+
+hr
+
+p #{link_to t('.show'), post_url(@comment.post)}

@@ -8,4 +8,16 @@ class User < ApplicationRecord
   has_many :posts, foreign_key: 'creator_id', inverse_of: :creator, dependent: :destroy
   has_many :comments, class_name: 'PostComment', dependent: :destroy
   has_many :likes, class_name: 'PostLike', dependent: :destroy
+
+  def initialize(attribute = nil)
+    default = {
+      email_delivery_enabled: true
+    }
+    attribute_with_default = attribute ? default.merge(attribute) : default
+    super(attribute_with_default)
+  end
+
+  def can_send_email?
+    email_delivery_enabled && !unconfirmed_email
+  end
 end

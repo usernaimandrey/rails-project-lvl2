@@ -1,5 +1,12 @@
 ---
 ru:
+  new_post_comment_mailer:
+    subject_new_comment: Новй коментарий к посту
+    new_comment_email:
+      greating: Здравствуйте %{user}
+      new_post_comment: К вашему посту, кто-то написал пару строк
+      content: 'Содержание: %{content}'
+      show: Перйти чтобы посмотреть
   log_in: Вход
   likes: "Понравилось: %{count}"
   sign_up: Регистрация

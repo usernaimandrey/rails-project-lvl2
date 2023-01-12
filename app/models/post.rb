@@ -8,4 +8,8 @@ class Post < ApplicationRecord
 
   validates :title, :body, presence: true
   validates :body, length: { minimum: 50 }
+
+  def author?(user)
+    creator_id == user.id
+  end
 end

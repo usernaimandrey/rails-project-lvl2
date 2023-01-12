@@ -5,6 +5,8 @@ ru:
       new:
         header: Создание поста
       comments:
+        list:
+          reply: Ответить
         create:
           failure: Чтот пошло не так
           success: Коментарий создан

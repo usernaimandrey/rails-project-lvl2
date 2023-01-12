@@ -7,6 +7,7 @@ module Web
       comment.user = current_user
       if comment.save
         redirect_to resource_post, notice: t('.success')
+        MailSender.send_new_comment_mail(comment)
       else
         flash[:alert] = comment&.errors&.full_messages&.join
         redirect_to resource_post
