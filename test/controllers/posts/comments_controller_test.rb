@@ -52,4 +52,21 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     assert_not(new_comment)
     assert_redirected_to new_user_session_path
   end
+
+  test 'new comment email' do
+    post = posts(:one)
+    assert_emails 1 do
+      post post_comments_path(post), params: { post_comment: @attributes }
+    end
+
+    assert_redirected_to post_path(post)
+  end
+
+  test 'not send email when user author' do
+    assert_emails 0 do
+      post post_comments_path(@post), params: { post_comment: @attributes }
+    end
+
+    assert_redirected_to post_path(@post)
+  end
 end
