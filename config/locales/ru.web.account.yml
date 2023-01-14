@@ -1,0 +1,8 @@
+ru:
+  web:
+    account:
+      newsletters:
+        update:
+          succes: Настройки успешно обновленны!
+          failure: Ошибка!
+          

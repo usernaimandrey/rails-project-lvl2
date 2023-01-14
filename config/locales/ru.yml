@@ -1,5 +1,8 @@
 ---
 ru:
+  helpers:
+    submit:
+      update: Изменить
   new_post_comment_mailer:
     subject_new_comment: Новй коментарий к посту
     new_comment_email:

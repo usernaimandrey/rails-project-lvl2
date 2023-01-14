@@ -1,0 +1,4 @@
+= simple_form_for current_user, url: account_newsletters_path do |f|
+    .mb-3
+      = f.input :email_delivery_enabled, class: 'form-check-input'
+    = f.button :submit, class: 'btn-primary'

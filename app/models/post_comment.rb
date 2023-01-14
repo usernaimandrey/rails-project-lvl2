@@ -6,4 +6,8 @@ class PostComment < ApplicationRecord
   belongs_to :post
 
   validates :content, presence: true
+
+  def author?(user)
+    user_id == user.id
+  end
 end

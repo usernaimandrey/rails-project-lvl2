@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class NewPostCommentMailer < ApplicationMailer
   def new_comment_email
     @comment = params[:comment]
