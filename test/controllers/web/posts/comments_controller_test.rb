@@ -2,9 +2,7 @@
 
 require 'test_helper'
 
-class CommentsControllerTest < ActionDispatch::IntegrationTest
-  include Devise::Test::IntegrationHelpers
-
+class Web::Posts::CommentsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @user = users(:pety)
     @post = posts(:post_without_likes)
@@ -68,5 +66,16 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to post_path(@post)
+  end
+
+  test 'not send when disable delivery' do
+    user = users(:vasy)
+    user.email_delivery_enabled = false
+    user.save!
+    post = posts(:one)
+
+    assert_emails 0 do
+      post post_comments_path(post), params: { post_comment: @attributes }
+    end
   end
 end

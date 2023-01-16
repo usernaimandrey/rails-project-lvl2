@@ -2,9 +2,7 @@
 
 require 'test_helper'
 
-class LikesControllerTest < ActionDispatch::IntegrationTest
-  include Devise::Test::IntegrationHelpers
-
+class Web::Posts::LikesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @user = users(:vasy)
     @post_without_likes = posts(:post_without_likes)
