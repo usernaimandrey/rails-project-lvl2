@@ -5,7 +5,6 @@ module Web
     def create
       comment = resource_post.comments.build(comment_params)
       comment.user = current_user
-      # debugger
       if comment.save
         redirect_to resource_post, notice: t('.success')
         MailSender.send_new_comment_mail(comment)
