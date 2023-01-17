@@ -10,6 +10,13 @@ ru:
       new_post_comment: К вашему посту, кто-то написал пару строк
       content: 'Содержание: %{content}'
       show: Перйти чтобы посмотреть
+  new_ansestry_comment_mailer:
+    subject_new_comment: Новй ответ к коментарию
+    new_ansestry_comment_email:
+      greating: Здравствуйте %{user}
+      new_ansestry_comment: К вашему коментарию, написали ответ
+      content: 'Содержание: %{content}'
+      show: Перйти чтобы посмотреть
   log_in: Вход
   likes: "Понравилось: %{count}"
   sign_up: Регистрация
