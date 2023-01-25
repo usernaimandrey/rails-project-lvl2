@@ -4,8 +4,9 @@
       .card-body
         .card-text
           = comment.content
-      .card-footer.text-muted.border-bottom
+      d-flex.card-footer.text-muted.border-bottom
         = render partial: 'web/shared/creation_data', locals: { email: comment.user.email, created_at: comment.created_at }
+        = render partial: 'web/posts/comments/likes/links', locals: { post: post, comment: comment, like: comment.likes.find_by(user_id: current_user.id) }
 
         -if child_comments
           = render partial: 'web/posts/comments/list', locals: { comments: child_comments, current_comment: current_comment, post: post }

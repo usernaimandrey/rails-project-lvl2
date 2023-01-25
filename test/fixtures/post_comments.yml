@@ -2,3 +2,10 @@ one:
   content: MyText
   post: one
   user: vasy
+  likes_count: 1
+
+without_likes:
+  content: MyText
+  post: one
+  user: pety
+  likes_count: nil

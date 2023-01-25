@@ -1,0 +1,7 @@
+one:
+  user: vasy
+  likeable: one (Post)
+
+two:
+  user: vasy
+  likeable: one (PostComment)

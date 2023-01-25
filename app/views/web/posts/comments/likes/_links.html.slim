@@ -1,0 +1,8 @@
+.d-flex
+  .mx-2 = comment.likes_count || 0
+  - if like.present?
+    = link_to(post_comment_like_path(post, comment, like, anchor: 'likes-section'), rel: :nofollow, method: :delete, class: 'text-dark') do
+        i.fa-solid.fa-thumbs-up
+  - else
+    = link_to(post_comment_likes_path(post, comment, anchor: 'likes-section'), rel: :nofollow, method: :post, class: 'text-dark') do
+        i.fa-regular.fa-thumbs-up

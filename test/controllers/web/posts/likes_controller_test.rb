@@ -19,10 +19,10 @@ class Web::Posts::LikesControllerTest < ActionDispatch::IntegrationTest
 
   test '#destroy' do
     post = posts(:one)
-    like = post_likes(:one)
+    like = likes(:one)
     delete post_like_path(post, like)
 
-    delete_like = PostLike.find_by(id: like)
+    delete_like = post.likes.find_by(id: like)
 
     assert_redirected_to post_path(post)
     assert_not(delete_like)
@@ -48,7 +48,7 @@ class Web::Posts::LikesControllerTest < ActionDispatch::IntegrationTest
 
   test 'double click on unlike' do
     post = posts(:one)
-    like = post_likes(:one)
+    like = likes(:one)
 
     delete post_like_path(post, like)
     delete post_like_path(post, like)

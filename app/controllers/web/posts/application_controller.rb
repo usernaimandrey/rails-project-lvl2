@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Web
-  class Posts::ApplicationController < ApplicationController
+  class Posts::ApplicationController < Web::ApplicationController
     before_action :authenticate_user!
 
     def resource_post
