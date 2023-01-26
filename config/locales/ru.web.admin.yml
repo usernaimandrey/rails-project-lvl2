@@ -1,0 +1,15 @@
+---
+ru:
+  web:
+    admin:
+      users:
+        index:
+          no_admin: А сюда можно только админам!
+          users: Все пользователи
+          email: Почта
+          role: Роль
+          unconfirmed_email: Почта подтверждена
+          current_sign_in_at: Текущий вход
+          last_sign_in_at: Прошлый вход
+          current_sign_in_ip: Текущий IP
+          last_sign_in_ip: Прошлый IP

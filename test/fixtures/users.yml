@@ -2,6 +2,7 @@ DEFAULTS: &DEFAULTS
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
   confirmed_at: <%= Time.current %>
   email_delivery_enabled: true
+  role: user
 
 vasy:
   <<: *DEFAULTS
@@ -10,3 +11,4 @@ vasy:
 pety:
   <<: *DEFAULTS
   email: pety@gmail.com
+  role: admin

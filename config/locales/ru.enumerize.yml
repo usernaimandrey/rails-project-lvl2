@@ -1,0 +1,7 @@
+---
+ru:
+  enumerize:
+    user:
+      role:
+        admin: Администратор
+        user: Пользователь

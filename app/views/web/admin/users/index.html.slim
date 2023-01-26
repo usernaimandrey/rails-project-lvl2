@@ -1,0 +1,27 @@
+.d-flex
+  = render partial: 'web/admin/shared/nav'
+  .d-flex.flex-column.w-100.m-1
+    h1 = t('.users')
+
+    table.table
+      thead
+        tr
+          th[scope="col"] = t('.id')
+          th[scope="col"] = t('.email')
+          th[scope="col"] = t('.role')
+          th[scope="col"] = t('.unconfirmed_email')
+          th[scope="col"] = t('.current_sign_in_at')
+          th[scope="col"] = t('.last_sign_in_at')
+          th[scope="col"] = t('.current_sign_in_ip')
+          th[scope="col"] = t('.last_sign_in_ip')
+      tbody
+        -@users.each do |user|
+          tr
+            td = user.id
+            td = user.email
+            td = user.role_text
+            td = user.unconfirmed_email ? t('.unconfirm') : t('.confirm')
+            td = l(user.current_sign_in_at, format: :long)
+            td = l(user.last_sign_in_at, format: :long)
+            td = user.current_sign_in_ip
+            td = user.last_sign_in_ip
