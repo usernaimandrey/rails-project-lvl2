@@ -20,5 +20,9 @@ Rails.application.routes.draw do
     namespace :account do
       resource :newsletters, only: %i[edit update]
     end
+
+    namespace :admin do
+      resources :users, only: :index
+    end
   end
 end

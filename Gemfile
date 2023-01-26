@@ -71,6 +71,8 @@ gem 'ancestry'
 
 gem 'devise'
 
+gem 'enumerize'
+
 gem 'i18n-tasks'
 
 gem 'net-smtp', require: false
