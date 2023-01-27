@@ -3,6 +3,9 @@ DEFAULTS: &DEFAULTS
   confirmed_at: <%= Time.current %>
   email_delivery_enabled: true
   role: user
+  current_sign_in_at: <%= Date.current %>
+  last_sign_in_at: <%= Date.current - 1.day %>
+  
 
 vasy:
   <<: *DEFAULTS
