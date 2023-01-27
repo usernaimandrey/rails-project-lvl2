@@ -4,6 +4,8 @@ ru:
     admin:
       users:
         index:
+          confirm: Да
+          unconfirm: Нет
           no_admin: А сюда можно только админам!
           users: Все пользователи
           email: Почта

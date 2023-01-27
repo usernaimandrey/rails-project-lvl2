@@ -31,4 +31,8 @@ lint-fix:
 test:
 	NODE_ENV=test bin/rails test
 
+check:
+	make test
+	make lint
+
 .PHONY: test
