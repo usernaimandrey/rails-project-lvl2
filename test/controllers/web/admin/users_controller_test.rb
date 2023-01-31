@@ -12,7 +12,7 @@ class Web::Admin::UsersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test '#index auth user' do
+  test '#index not auth user' do
     user = users(:vasy)
     sign_in user
 

@@ -1,0 +1,22 @@
+.d-flex
+  = render partial: 'web/admin/shared/nav'
+  .d-flex.flex-column.w-100.m-1
+    h1 = t('.category')
+
+    table.table
+      thead
+        tr
+          th[scope="col"] = t('.id')
+          th[scope="col"] = t('.name')
+
+      tbody
+        -@categories.each do |category|
+          tr
+            td = category.id
+            td = category.name
+            td
+              .d-flex
+                = link_to t('.update'), edit_admin_category_path(category), class: 'btn btn-primary m-1'
+                = link_to t('.destroy'), admin_category_path(category), method: :delete, data: { confirm: t('.are_your_shure') }, class: 'btn btn-danger m-1'
+    .d-flex
+      = link_to t('.new'), new_admin_category_path, class: 'btn btn-primary'

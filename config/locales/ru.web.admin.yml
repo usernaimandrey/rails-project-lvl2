@@ -2,6 +2,10 @@
 ru:
   web:
     admin:
+      shared:
+        nav:
+          users: Пользователи
+          categories: Категории
       users:
         index:
           confirm: Да
@@ -15,3 +19,20 @@ ru:
           last_sign_in_at: Прошлый вход
           current_sign_in_ip: Текущий IP
           last_sign_in_ip: Прошлый IP
+      categories:
+        index:
+          category: Список категорий
+          id: ID
+          name: Название
+          new: Новая категория
+          update: Редактировать
+          destroy: Удалить
+          are_your_shure: Вы уверенны?
+        update:
+          failure: Исправте ошибки
+          success: Категория успешно обновленна
+        create:
+          failure: Исправте ошибки
+          success: Категория успешно созданна
+        destroy:
+          success: Категория успешно удалена

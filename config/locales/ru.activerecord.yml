@@ -14,6 +14,8 @@ ru:
         password_confirmation: Повторите пароль
         remember_me: Запомнить
         email_delivery_enabled: Рассылка активности в ваших резюме
+      category:
+        name: Имя
         
     errors:
       models:
@@ -31,3 +33,4 @@ ru:
     models:
       post: Пост
       post_comment: Коментарий
+      category: Категория
