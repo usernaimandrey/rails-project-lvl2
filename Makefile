@@ -38,6 +38,7 @@ check:
 
 setup-ci:
 	make setup
+	yarn install
 	RAILS_ENV=test bin/rails assets:precompile
 
 .PHONY: test
