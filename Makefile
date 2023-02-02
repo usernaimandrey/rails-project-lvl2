@@ -36,4 +36,8 @@ check:
 	make test
 	make lint
 
+setup-ci:
+	make setup
+	RAILS_ENV=test bin/rails assets:precompile
+
 .PHONY: test
