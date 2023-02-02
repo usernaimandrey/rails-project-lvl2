@@ -9,6 +9,10 @@ class Web::Admin::CategoriesController < Web::Admin::ApplicationController
     @category = Category.new
   end
 
+  def edit
+    @category = Category.find_by(id: params[:id])
+  end
+
   def create
     @category = Category.new(category_params)
 
@@ -19,10 +23,6 @@ class Web::Admin::CategoriesController < Web::Admin::ApplicationController
       flash.now[:alert] = t('.failure')
       render :new
     end
-  end
-
-  def edit
-    @category = Category.find_by(id: params[:id])
   end
 
   def update

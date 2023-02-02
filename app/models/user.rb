@@ -12,6 +12,8 @@ class User < ApplicationRecord
 
   enumerize :role, in: %i[user admin], default: :user, predicates: true
 
+  validates :email, format: { with: Devise.email_regexp }
+
   def initialize(attribute = nil)
     default = {
       email_delivery_enabled: true

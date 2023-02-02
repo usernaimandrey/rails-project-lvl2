@@ -23,7 +23,7 @@ jobs:
           bundler-cache: true
 
       - name: Setup app
-        run: make setup
+        run: make setup-ci
         
       - name: Linter check
         run: make lint
