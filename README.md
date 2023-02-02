@@ -10,9 +10,9 @@
 
 [Demo on Heroku](https://shlyapnikov-blog.herokuapp.com/)
 
-### Ruby 3.0.2
+### Ruby 3.1.2
 
-### Ruby on Rails 6
+### Ruby on Rails 7
 
 Deploy project locally:
 
