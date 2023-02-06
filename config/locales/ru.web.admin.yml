@@ -19,6 +19,14 @@ ru:
           last_sign_in_at: Прошлый вход
           current_sign_in_ip: Текущий IP
           last_sign_in_ip: Прошлый IP
+        posts:
+          update:
+            success: Пост успешно обнавлен.
+          index:
+            all_posts: "Посты: %{user}"
+            edit: Редактировать
+            destroy: Удалить
+            question: Вы уверенны?
       categories:
         index:
           category: Список категорий

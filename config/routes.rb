@@ -22,7 +22,11 @@ Rails.application.routes.draw do
     end
 
     namespace :admin do
-      resources :users, only: :index
+      resources :users, only: :index do
+        scope module: :users do
+          resources :posts, only: %i[index edit update destroy]
+        end
+      end
       resources :categories, only: %i[index new create edit update destroy]
     end
   end

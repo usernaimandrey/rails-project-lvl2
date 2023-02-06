@@ -1,0 +1,13 @@
+h2 = t('.all_posts', user: @user.email)
+
+- @posts.each do |post|
+    .card.border-success.mb-2
+      .card-body
+        .card-title
+          h2 = post.title
+        .card-text.text-truncate
+          p = post.body
+        .card-footer.bg-transparent.border-success
+          = render partial: 'web/shared/creation_data', locals: { email: post.creator.email, created_at: post.created_at }
+        = link_to t('.edit'), edit_admin_user_post_path(@user, post), class: 'btn btn-primary m-2'
+        = link_to t('.destroy'), admin_user_post_path(@user, post), method: :delete, data: { confirm: t('.question') }, class: 'btn btn-danger m-2'
