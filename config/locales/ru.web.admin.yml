@@ -7,8 +7,13 @@ ru:
           users: Пользователи
           categories: Категории
       users:
+        comments:
+          index:
+            question: Вы уверенны?
+            destroy: Удалить
         index:
           confirm: Да
+          comments: Коментарии
           unconfirm: Нет
           no_admin: А сюда можно только админам!
           users: Все пользователи
@@ -24,6 +29,7 @@ ru:
             success: Пост успешно обнавлен.
           index:
             all_posts: "Посты: %{user}"
+            back: Пользователи
             edit: Редактировать
             destroy: Удалить
             question: Вы уверенны?

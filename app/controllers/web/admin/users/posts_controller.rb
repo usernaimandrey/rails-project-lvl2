@@ -3,17 +3,17 @@
 module Web
   class Admin::Users::PostsController < Web::Admin::Users::ApplicationController
     def index
-      @user = User.find_by(id: params[:user_id])
+      @user = resource_user
       @posts = @user.posts
     end
 
     def edit
-      @user = User.find_by(id: params[:user_id])
+      @user = resource_user
       @post = @user.posts.find_by(id: params[:id])
     end
 
     def update
-      @user = User.find_by(id: params[:user_id])
+      @user = resource_user
       @post = @user.posts.find_by(id: params[:id])
 
       if @post.update(post_params)
@@ -26,8 +26,7 @@ module Web
     end
 
     def destroy
-      user = User.find_by(id: params[:user_id])
-      post = user.posts.find_by(id: params[:id])
+      post = resource_user.posts.find_by(id: params[:id])
 
       post.destroy
       flash[:notice] = t('.success')

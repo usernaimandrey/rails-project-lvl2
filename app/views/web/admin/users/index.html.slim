@@ -18,7 +18,11 @@
         -@users.each do |user|
           tr
             td = user.id
-            td = link_to user.email, admin_user_posts_path(user)
+            td
+              .m-1
+                = link_to user.email, admin_user_posts_path(user)
+              .m-1
+                = link_to t('.comments'), admin_user_comments_path(user)
             td = user.role_text
             td = user.unconfirmed_email ? t('.unconfirm') : t('.confirm')
             td = l(user.current_sign_in_at, format: :long)

@@ -25,6 +25,7 @@ Rails.application.routes.draw do
       resources :users, only: :index do
         scope module: :users do
           resources :posts, only: %i[index edit update destroy]
+          resources :comments, only: %i[index destroy]
         end
       end
       resources :categories, only: %i[index new create edit update destroy]

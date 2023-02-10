@@ -1,5 +1,6 @@
 h2 = t('.all_posts', user: @user.email)
 
+= link_to t('.back'), admin_users_path
 - @posts.each do |post|
     .card.border-success.mb-2
       .card-body
