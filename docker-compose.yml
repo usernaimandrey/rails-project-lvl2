@@ -1,0 +1,12 @@
+---
+services:
+  hexlet-blog:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: make start
+    volumes:
+      - ~/.bash_history:/root/.bash_history
+      - .:/app
+    ports:
+      - "3000:3000"

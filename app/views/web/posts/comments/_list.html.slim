@@ -12,7 +12,9 @@
           = render partial: 'web/posts/comments/list', locals: { comments: child_comments, current_comment: current_comment, post: post }
         div
         - if user_signed_in?
-          a.text-decoration-none[data-bs-toggle="collapse" href="#collapse-#{comment.id}" role="button" aria-expanded="false"] = t('.reply')
+          a.btn.btn-warning[data-bs-toggle="collapse" href="#collapse-#{comment.id}" role="button" aria-expanded="false"]
+            span.bi.bi-patch-plus
+            = t('.reply')
           .collapse[id="collapse-#{comment.id}"]
             .mb-2.m-4
               = render partial: 'web/posts/comments/form', locals: { comment: current_comment, parent_id: comment.id, url: post_comments_path(post, current_comment) }

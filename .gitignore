@@ -33,7 +33,7 @@ doc
 .env
 
 # Ignore docker and docker-compose files
-docker-compose.yml
+# docker-compose.yml
 
 # Ignore coverage files
 /coverage

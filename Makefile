@@ -1,7 +1,20 @@
+include make-compose.mk
+
 setup:
 	cp -n .env.example .env || true
 	bin/setup
-	bin/rails db:seed
+	# bin/rails db:seed
+	make db-reset
+
+fixtures-load:
+	bin/rails db:fixtures:load
+
+db-reset:
+	bin/rails db:drop
+	bin/rails db:create
+	bin/rails db:schema:load
+	bin/rails db:migrate
+	bin/rails db:fixtures:load
 
 start:
 	bin/rails s -p 3000 -b "0.0.0.0"
