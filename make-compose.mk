@@ -11,7 +11,7 @@ compose-down:
 	docker-compose down || true
 
 compose-install:
-	docker-compose run --rm hexlet-blog make setup
+	docker-compose run --rm app make setup
 
 compose-logs:
 	docker-compose logs -f
@@ -21,5 +21,12 @@ compose-restart:
 
 compose-stop:
 	docker-compose stop || true
+
+compose-production-build:
+	docker-compose -f docker-compose.yml build
+
+compose-production-test:
+	make prepare-env
+	docker-compose -f docker-compose.yml up --abort-on-container-exit --exit-code-from app
 
 compose-setup: compose-down compose-build compose-install

@@ -1,12 +1,33 @@
 ---
 services:
-  hexlet-blog:
+  db:
+    image: postgres:16.0-alpine
+    environment:
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_DB: ${DATABASE_NAME}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "sh -c 'pg_isready -U ${DATABASE_USERNAME} -d ${DATABASE_NAME}'"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 10s 
+
+  app:
     build:
       context: .
-      dockerfile: Dockerfile
-    command: make start
-    volumes:
-      - ~/.bash_history:/root/.bash_history
-      - .:/app
-    ports:
-      - "3000:3000"
+      dockerfile: Dockerfile.production
+    environment:
+      DATABASE_HOST: db
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: password
+      DATABASE_NAME: postgres
+    command: make check
+    depends_on: 
+      db: 
+        condition: service_healthy
+
+volumes:
+  pgdata:

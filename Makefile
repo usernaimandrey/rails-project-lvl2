@@ -1,10 +1,14 @@
 include make-compose.mk
+include make-compose-app.mk
 
 setup:
-	cp -n .env.example .env || true
+	make prepare-env	
 	bin/setup
 	# bin/rails db:seed
 	make db-reset
+
+prepare-env:
+	cp -n .env.example .env || true
 
 fixtures-load:
 	bin/rails db:fixtures:load
@@ -53,5 +57,10 @@ setup-ci:
 	make setup
 	yarn install
 	RAILS_ENV=test bin/rails assets:precompile
+
+
+start-production:
+	bin/rails db:migrate
+	bin/rails server -e production
 
 .PHONY: test
