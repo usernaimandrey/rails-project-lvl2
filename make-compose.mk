@@ -27,6 +27,6 @@ compose-production-build:
 
 compose-production-test:
 	make prepare-env
-	docker-compose -f docker-compose.yml up --abort-on-container-exit --exit-code-from app
+	docker-compose -f docker-compose.yml up --abort-on-container-exit
 
 compose-setup: compose-down compose-build compose-install
