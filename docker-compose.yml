@@ -16,7 +16,7 @@ services:
       start_period: 10s 
 
   app:
-    image: shlyapnikovan/collective_blog
+    image: shlyapnikovan/rails-project-lvl2
     build:
       context: .
       dockerfile: Dockerfile.production
