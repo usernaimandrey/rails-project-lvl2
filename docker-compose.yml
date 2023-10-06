@@ -16,6 +16,7 @@ services:
       start_period: 10s 
 
   app:
+    image: shlyapnikovan/collective_blog
     build:
       context: .
       dockerfile: Dockerfile.production

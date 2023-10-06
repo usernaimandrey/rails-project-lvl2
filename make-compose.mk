@@ -23,7 +23,7 @@ compose-stop:
 	docker-compose stop || true
 
 compose-production-build:
-	docker-compose -f docker-compose.yml build
+	docker-compose -f docker-compose.yml build app
 
 compose-production-test:
 	make prepare-env
