@@ -6,7 +6,7 @@ on:
       - v*
 
 env:
-  APP_IMAGE_NAME: hexletcomponents/devops-example-app
+  APP_IMAGE_NAME: shlyapnikovan/rails-project-lvl2
 
 jobs:
   docker:
