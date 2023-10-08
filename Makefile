@@ -49,14 +49,15 @@ test:
 	bin/rails db:environment:set RAILS_ENV=test
 	bin/rails test
 
-check:
-	make test
-	make lint
-
 setup-ci:
 	make setup
 	yarn install
 	RAILS_ENV=test bin/rails assets:precompile
+
+ci-check:
+	make lint
+	bin/rails db:create
+	make test
 
 
 start-production:

@@ -25,7 +25,7 @@ services:
       DATABASE_USERNAME: postgres
       DATABASE_PASSWORD: password
       DATABASE_NAME: postgres
-    command: make check
+    command: make ci-check
     depends_on: 
       db: 
         condition: service_healthy
