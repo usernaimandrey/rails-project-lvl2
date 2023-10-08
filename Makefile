@@ -64,4 +64,11 @@ start-production:
 	bin/rails db:migrate
 	bin/rails server -e production
 
+
+tag:
+	git tag $(TAG) && git push --tags --no-verify
+
+next-tag:
+	make tag TAG=$(shell bin/generate_next_tag)
+
 .PHONY: test
