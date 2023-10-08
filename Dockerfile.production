@@ -3,7 +3,7 @@ FROM ruby:3.1.2
 ENV PROJECT_ROOT /app
 WORKDIR ${PROJECT_ROOT}
 
-ENV NODE_VERSION 19.x
+ENV NODE_VERSION 18.x
 
 RUN curl -sL https://deb.nodesource.com/setup_${NODE_VERSION} | bash -
 

@@ -21,6 +21,7 @@ db-reset:
 	bin/rails db:fixtures:load
 
 start:
+	rm -rf tmp/pids/server.pid
 	bin/rails s -p 3000 -b "0.0.0.0"
 
 console:
@@ -52,11 +53,10 @@ test:
 setup-ci:
 	make setup
 	yarn install
-	RAILS_ENV=test bin/rails assets:precompile
+	RAILS_ENV=test NODE_OPTIONS='--openssl-legacy-provider' bin/rails assets:precompile
 
 ci-check:
-	make lint
-	bin/rails db:create
+	make setup-ci
 	make test
 
 

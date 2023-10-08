@@ -1,12 +1,14 @@
 FROM ruby:3.1.2
 
-ENV NODE_VERSION 19.x
+ENV NODE_VERSION 18.x
 
 RUN curl -sL https://deb.nodesource.com/setup_${NODE_VERSION} | bash -
 
 RUN apt-get update \
   && apt-get install -y nodejs \
   && rm -rf /var/lib/apt/lists/*
+
+RUN npm install -g yarn
 
 ENV PROJECT_ROOT /app
 RUN mkdir -p ${PROJECT_ROOT}
