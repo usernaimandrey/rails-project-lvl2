@@ -29,22 +29,19 @@ jobs:
         with:
           context: .
           file: Dockerfile.production
-          # cache-from: type=registry,ref=${{ env.APP_IMAGE_NAME }}:cached
-          # cache-to: type=inline
-          # push: true
-          load: true
-          # tags: ${{ env.APP_IMAGE_NAME }}:cached
-          tags: ${{ env.APP_IMAGE_NAME }}:test
+          cache-from: type=registry,ref=${{ env.APP_IMAGE_NAME }}:cached
+          cache-to: type=inline
+          push: true
+          tags: ${{ env.APP_IMAGE_NAME }}:cached
 
       - name: Check
-        # run: make compose-production-test
-        run: make app-check T="${{ env.APP_IMAGE_NAME }}:test"
+        run: make compose-production-test
 
       - name: Push
         uses: docker/build-push-action@v2
         with:
           context: .
           file: Dockerfile.production
-          # cache-from: type=registry,ref=${{ env.APP_IMAGE_NAME }}:cached
+          cache-from: type=registry,ref=${{ env.APP_IMAGE_NAME }}:cached
           push: true
           tags: ${{ env.APP_IMAGE_NAME }}:latest

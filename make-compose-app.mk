@@ -12,6 +12,3 @@ app-test:
 
 app-lint-fix:
 	docker compose run --rm app make lint-fix
-
-app-check:
-	docker run --rm $(T) make ci-check
