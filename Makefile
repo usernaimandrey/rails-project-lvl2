@@ -52,8 +52,8 @@ test:
 
 setup-ci:
 	make setup
-	# yarn install
-	# RAILS_ENV=test NODE_OPTIONS='--openssl-legacy-provider' bin/rails assets:precompile
+	yarn install
+	RAILS_ENV=test NODE_OPTIONS='--openssl-legacy-provider' bin/rails assets:precompile
 
 ci-check:
 	make setup-ci
