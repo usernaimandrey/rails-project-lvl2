@@ -1,0 +1,10 @@
+- hosts: all
+  tasks:
+  - community.docker.docker_container:
+      name: app
+      image: "shlyapnikovan/rails-project-lvl2:{{ version }}"
+      restart_policy: always
+      state: started
+      ports:
+        - 3000:3000
+    become: yes
