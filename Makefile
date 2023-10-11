@@ -6,6 +6,8 @@ setup:
 	bin/setup
 	# bin/rails db:seed
 	make db-reset
+	yarn install
+	RAILS_ENV=test NODE_OPTIONS='--openssl-legacy-provider' bin/rails assets:precompile
 
 prepare-env:
 	cp -n .env.example .env || true
@@ -52,8 +54,8 @@ test:
 
 setup-ci:
 	make setup
-	yarn install
-	RAILS_ENV=test NODE_OPTIONS='--openssl-legacy-provider' bin/rails assets:precompile
+	# yarn install
+	# RAILS_ENV=test NODE_OPTIONS='--openssl-legacy-provider' bin/rails assets:precompile
 
 ci-check:
 	make setup-ci
