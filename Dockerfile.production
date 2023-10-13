@@ -37,6 +37,7 @@ RUN APP_HOST=example.test NODE_ENV=production RAILS_ENV=production SECRET_KEY_BA
 ENV DOCKER_CHANNEL stable
 ENV DOCKER_VERSION 20.10.21
 ENV DISABLE_SPRING 1
+ENV SECRET_KEY_BASE=jopa
 
 # RUN curl -fsSL "https://download.docker.com/linux/static/${DOCKER_CHANNEL}/x86_64/docker-${DOCKER_VERSION}.tgz" \
   # | tar -xzC /usr/local/bin --strip=1 docker/docker

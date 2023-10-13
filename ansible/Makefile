@@ -2,4 +2,4 @@ setup:
 	ansible-playbook setup.yml -i inventory.ini -u andrey
 
 deploy:
-	ansible-playbook deploy.yml -i inventory.ini -vv --extra-vars "version=v3" -u andrey
+	ansible-playbook deploy.yml -i inventory.ini -vv --extra-vars "version=v4" -u andrey
