@@ -31,6 +31,7 @@ yarn-debug.log*
 .yardoc
 doc
 .env
+vault_pass
 
 # Ignore docker and docker-compose files
 # docker-compose.yml
