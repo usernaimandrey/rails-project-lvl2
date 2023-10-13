@@ -1,8 +1,10 @@
 - hosts: all
-  tasks:
+  vars_files:
+    - vault.yml
+  tasks: 
   - community.docker.docker_container:
       name: app
-      image: "shlyapnikovan/rails-project-lvl2:latest"
+      image: "shlyapnikovan/rails-project-lvl2:{{ version }}"
       restart_policy: always
       state: started
       ports:
@@ -10,5 +12,5 @@
       env:
         NODE_ENV: production
         RAILS_ENV: production
-        SECRET_KEY_BASE: 6e0fdbbd4d98d4db7ed74999666b10d33dd9cc1032ed4c20b8e1e198ecc4b51e85a06b0da006eecfb6980f3a1cc5f49991b127e8a800c2f15feb09518147854b
+        SECRET_KEY_BASE: '{{ secret_key_base }}'
     become: yes
