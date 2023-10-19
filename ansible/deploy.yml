@@ -1,16 +1,32 @@
 - hosts: all
   vars_files:
     - vault.yml
-  tasks: 
+  tasks:
+  - community.docker.docker_network:
+      name: devops-example
+
   - community.docker.docker_container:
       name: app
       image: "shlyapnikovan/rails-project-lvl2:{{ version }}"
       restart_policy: always
       state: started
-      ports:
-        - 3000:3000
+      networks:
+        - name: devops-example
+      # ports:
+        # - 3000:3000
       env:
         NODE_ENV: production
         RAILS_ENV: production
         SECRET_KEY_BASE: '{{ secret_key_base }}'
     become: yes
+
+  - community.docker.docker_container:
+      name: caddy # имя используется как домен
+      image: "hexletcomponents/devops-example-caddy:{{ version }}"
+      restart_policy: always
+      state: started
+      networks:
+        - name: devops-example
+      ports:
+        - 80:80
+        - 443:443
