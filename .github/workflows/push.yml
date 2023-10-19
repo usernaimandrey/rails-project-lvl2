@@ -45,3 +45,11 @@ jobs:
           cache-from: type=registry,ref=${{ env.APP_IMAGE_NAME }}:cached
           push: true
           tags: ${{ env.APP_IMAGE_NAME }}:latest
+
+      - name: Build and push caddy
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: services/caddy/Dockerfile
+          push: true
+          tags: shlyapnikovan/caddy_rails_blog:latest

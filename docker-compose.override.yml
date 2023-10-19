@@ -8,5 +8,16 @@ services:
     volumes:
       - ~/.bash_history:/root/.bash_history
       - .:/app
+    # ports:
+      # - "3000:3000"
+
+  caddy:
+    build:
+      context: .
+      dockerfile: services/caddy/Dockerfile
+    volumes:
+      - .:/app
+      - ./services/caddy/Caddyfile:/etc/caddy/Caddyfile
     ports:
-      - "3000:3000"
+      - 80:80
+      - 443:443

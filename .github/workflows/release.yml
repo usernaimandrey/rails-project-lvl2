@@ -26,3 +26,12 @@ jobs:
 
       - name: Push image
         run: docker push ${{ env.APP_IMAGE_NAME }}:${{ github.ref_name }}
+
+      - name: Pull Caddy
+        run: docker pull shlyapnikovan/caddy_rails_blog:latest
+
+      - name: Create tag
+        run: docker tag shlyapnikovan/caddy_rails_blog:latest shlyapnikovan/caddy_rails_blog:${{ github.ref_name }}
+
+      - name: Push Caddy
+        run: docker push shlyapnikovan/caddy_rails_blog:${{ github.ref_name }}
