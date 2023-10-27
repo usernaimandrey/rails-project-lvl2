@@ -4,6 +4,7 @@
   tasks:
   - community.docker.docker_network:
       name: devops-example
+    become: yes
 
   - community.docker.docker_container:
       name: app
@@ -21,8 +22,8 @@
     become: yes
 
   - community.docker.docker_container:
-      name: caddy # имя используется как домен
-      image: "hexletcomponents/devops-example-caddy:{{ version }}"
+      name: caddy
+      image: "shlyapnikovan/caddy_rails_blog:tagname:{{ version }}"
       restart_policy: always
       state: started
       networks:
@@ -30,3 +31,4 @@
       ports:
         - 80:80
         - 443:443
+    become: yes
