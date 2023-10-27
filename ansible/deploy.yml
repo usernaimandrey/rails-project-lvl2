@@ -23,7 +23,7 @@
 
   - community.docker.docker_container:
       name: caddy
-      image: "shlyapnikovan/caddy_rails_blog:tagname:{{ version }}"
+      image: "shlyapnikovan/caddy_rails_blog:{{ version }}"
       restart_policy: always
       state: started
       networks:
