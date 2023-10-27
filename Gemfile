@@ -84,3 +84,7 @@ gem 'rollbar'
 gem 'simple_form'
 
 gem 'slim-rails'
+
+gem 'sentry-ruby'
+
+gem 'sentry-rails'

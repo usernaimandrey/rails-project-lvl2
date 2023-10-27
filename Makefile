@@ -7,7 +7,7 @@ setup:
 	# bin/rails db:seed
 	make db-reset
 	yarn install
-	NODE_OPTIONS='--openssl-legacy-provider' bin/rails assets:precompile
+	bin/rails assets:precompile
 
 prepare-env:
 	cp -n .env.example .env || true
