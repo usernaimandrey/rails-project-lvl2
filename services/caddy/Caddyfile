@@ -1,4 +1,4 @@
-localhost, devops-example.test {
+localhost, anshlyapnikov.ru {
     tls internal
 
     handle /images/* {
